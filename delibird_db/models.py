@@ -56,7 +56,7 @@ class Robot(models.Model):
 
 
 class Table(models.Model):
-    store = models.ForeignKey(Store, on_delete=models.CASCADE, null=False)
+    # store = models.ForeignKey(Store, on_delete=models.CASCADE, null=False)
     # table_num = models.IntegerField(null=False, primary_key=True)
     pos_x = models.IntegerField(null=False)
     pos_y = models.IntegerField(null=False)

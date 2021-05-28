@@ -7,6 +7,6 @@ from rest_framework import generics
 class TableSerializer(serializers.ModelSerializer):
     class Meta:
         model = Table
-        fields = ('id', 'pos_x', 'pos_y', 'angle')
+        fields = ('id', 'pos_x', 'pos_y', 'angle_z', 'angle_w')
 
     

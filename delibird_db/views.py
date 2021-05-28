@@ -21,8 +21,9 @@ def table_manager(request):
     if request.method == 'POST':
         pos_x_data = request.GET['pos_x']
         pos_y_data = request.GET['pos_y']
-        angle_data = request.GET['angle']
-        table_obj = Table(pos_x=pos_x_data, pos_y=pos_y_data, angle=angle_data)
+        angle_z_data = request.GET['angle_z']
+        angle_w_data = request.GET['angle_w']
+        table_obj = Table(pos_x=pos_x_data, pos_y=pos_y_data, angle_z=angle_z_data, angle_w=angle_w_data)
         table_obj.save()
         tables = Table.objects.all()
         tables_serializer = TableSerializer(tables, many=True)

@@ -60,8 +60,8 @@ class Table(models.Model):
     # table_num = models.IntegerField(null=False, primary_key=True)
     pos_x = models.FloatField(null=False)
     pos_y = models.FloatField(null=False)
-    angle_z = models.FloatField(null=False)
-    angle_w = models.FloatField(null=False)
+    angle_z = models.FloatField(default=0)
+    angle_w = models.FloatField(default=0)
 
 
 class Order:

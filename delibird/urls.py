@@ -19,4 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('delibird_db/', include('delibird_db.urls')),
+    path('superuser_db/', include('superuser_db.urls')),
 ]

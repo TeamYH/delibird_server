@@ -1,5 +1,6 @@
 from django.db import models
 from delibird_db.models import Robot, Store
+from django.utils.timezone import now
 # Create your models here.
 
 class DelibirdErr(models.Model):
@@ -15,8 +16,8 @@ class WebErr(models.Model):
 
 class Counsel(models.Model):
     customer = models.CharField(max_length=20, null=False)
-    counsel_date = models.DateField(null=False)
+    counsel_date = models.DateTimeField(default=now, editable=False)
     phonenum = models.CharField(max_length=15, null=False)
-    store_name = models.CharField(max_length=50, null=False)
-    address = models.TextField(null=False)
-    detail_address = models.CharField(max_length=15, null=False)
+    email = models.CharField(max_length=50, null=False)
+    comment = models.TextField(null=False)
+

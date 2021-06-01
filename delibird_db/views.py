@@ -19,12 +19,20 @@ def table_manager(request):
         return JsonResponse(tables_serializer.data, safe=False)
 
     if request.method == 'POST':
-        pos_x_data = request.GET['pos_x']
-        pos_y_data = request.GET['pos_y']
-        angle_z_data = request.GET['angle_z']
-        angle_w_data = request.GET['angle_w']
-        table_obj = Table(pos_x=pos_x_data, pos_y=pos_y_data, angle_z=angle_z_data, angle_w=angle_w_data)
-        table_obj.save()
+        delete_data = Table.objects.all()
+        
+        delete_data.delete()
+        #pos_x_data = request.GET['pos_x']
+        #pos_y_data = request.GET['pos_y']
+        #angle_z_data = request.GET['angle_z']
+        #angle_w_data = request.GET['angle_w']
+        #table_obj = Table(pos_x=pos_x_data, pos_y=pos_y_data, angle_z=angle_z_data, angle_w=angle_w_data)
+        #table_obj.save()
+        #print(request.data)
+        for data in request.data:
+            #print(data)
+            table_obj = Table(id=data['id'], pos_x=data['pos_x'], pos_y=data['pos_y'], angle_z=data['angle_z'], angle_w=data['angle_w'])
+            table_obj.save()
         tables = Table.objects.all()
         tables_serializer = TableSerializer(tables, many=True)
         return JsonResponse(tables_serializer.data, safe=False)
